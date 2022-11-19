@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ApplicationVendas</string>
+    <string name="entrar">Entrar</string>
+    <string name="add">Adicionar</string>
+    <string name="bck">Voltar</string>
+    <string name="login">Faça seu login</string>
+    <string name="text_cadastro">Crie uma conta clicando aqui</string>
+    <string name="text_tela_cadastro">Cadastre-se</string>
+</resources>

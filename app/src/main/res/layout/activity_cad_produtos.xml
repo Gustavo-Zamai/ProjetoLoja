@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".LoginActivity">
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_shopping"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastre um novo Produto"
+            android:textAlignment="center"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/logo"/>
+
+        <View
+            android:id="@+id/containerComponents"
+            style="@style/ContainerComponents"
+            android:layout_width="369dp"
+            android:layout_height="410dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview2" />
+
+        <EditText
+            android:id="@+id/inputProduto"
+            style="@style/Edit_Text"
+            android:hint="Digite o nome do produto:"
+            android:drawableRight="@drawable/ic_shopping"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintEnd_toEndOf="@id/containerComponents"
+            app:layout_constraintTop_toTopOf="@id/containerComponents"
+            />
+
+        <EditText
+            android:id="@+id/inputCategoria"
+            style="@style/Edit_Text"
+            android:hint="Informe a categoria do produto:"
+            android:drawableRight="@drawable/ic_categorias"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintEnd_toEndOf="@id/containerComponents"
+            app:layout_constraintTop_toBottomOf="@id/inputProduto"
+            />
+
+        <EditText
+            android:id="@+id/inputPreco"
+            style="@style/Edit_Text"
+            android:hint="Informe o valor do produto:"
+            android:drawableRight="@drawable/ic_money"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintEnd_toEndOf="@id/containerComponents"
+            app:layout_constraintTop_toBottomOf="@id/inputCategoria"
+            />
+
+        <EditText
+            android:id="@+id/inputDesc"
+            style="@style/Edit_Text"
+            android:hint="Descrição sobre o produto:"
+            android:drawableRight="@drawable/ic_sobre"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintEnd_toEndOf="@id/containerComponents"
+            app:layout_constraintTop_toBottomOf="@id/inputPreco"
+            />
+
+        <EditText
+            android:id="@+id/inputQtd"
+            style="@style/Edit_Text"
+            android:hint="Quantidade adicionada:"
+            android:drawableRight="@drawable/ic_sobre"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintEnd_toEndOf="@id/containerComponents"
+            app:layout_constraintTop_toBottomOf="@id/inputDesc"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_add"
+            style="@style/button"
+            android:layout_width="152dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="116dp"
+            android:onClick="btn_add"
+            android:text="@string/add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputDesc" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_voltar"
+            style="@style/button"
+            android:layout_width="152dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="116dp"
+            android:text="@string/bck"
+            android:onClick="btn_voltar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputDesc" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
