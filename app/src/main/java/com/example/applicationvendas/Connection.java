@@ -29,15 +29,6 @@ public class Connection extends SQLiteOpenHelper{
         db.execSQL("drop table if exists produto");
     }
 
-   public Boolean checkUsername(String cpf) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from funcionario where cpf = ?", new String[]{cpf});
-        if (cursor.getCount() > 0)
-            return true;
-        else
-            return false;
-    }
-
     public Boolean checkUsernamePasswd(String cpf, String senha){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from funcionario where cpf = ? and senha = ?",

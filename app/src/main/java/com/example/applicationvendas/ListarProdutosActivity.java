@@ -119,6 +119,14 @@ public class ListarProdutosActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void back (MenuItem menuItem){
+        AdapterView.AdapterContextMenuInfo menuInfo =
+                (AdapterView.AdapterContextMenuInfo) menuItem.getMenuInfo();
+        //final Funcionario funcionarioUpdate = funcionarioConsulta.get(menuInfo.position);
+        Intent intent = new Intent(this, FuncionarioHomeActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onResume(){//atualiza a lista na tela do celular
         super.onResume();

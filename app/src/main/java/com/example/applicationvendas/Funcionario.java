@@ -58,8 +58,8 @@ public class Funcionario implements Serializable {
         this.salario = salario;
     }
 
-    @Override
+    /*@Override
     public String toString(){
         return nome;
-    }
+    }*/
 }

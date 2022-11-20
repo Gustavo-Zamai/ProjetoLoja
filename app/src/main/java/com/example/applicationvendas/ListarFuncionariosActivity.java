@@ -81,9 +81,7 @@ public class ListarFuncionariosActivity extends AppCompatActivity {
     public void delete(MenuItem item){//pegar a posicao do item na lsita
         AdapterView.AdapterContextMenuInfo menuInfo =
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();//jogando o menu para o adaptador
-
         final Funcionario funcionarioDelete = funcionarioConsulta.get(menuInfo.position);//pega o aluno com a posicao
-
         AlertDialog dialog = new AlertDialog.Builder(this)//msg de confirmacao para o usuario
                 .setTitle("Atenção")
                 .setMessage("Confirma a exclução do Funcionário? ")
@@ -125,6 +123,13 @@ public class ListarFuncionariosActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void back (MenuItem menuItem){
+        AdapterView.AdapterContextMenuInfo menuInfo =
+                (AdapterView.AdapterContextMenuInfo) menuItem.getMenuInfo();
+        //final Funcionario funcionarioUpdate = funcionarioConsulta.get(menuInfo.position);
+        Intent intent = new Intent(this, FuncionarioHomeActivity.class);
+        startActivity(intent);
+    }
     @Override
     public void onResume(){//atualiza a lista na tela do celular
         super.onResume();
