@@ -37,15 +37,15 @@ public class LoginActivity extends AppCompatActivity {
                 String passwd = edit_passwd.getText().toString();
 
                 if(user.equals("") || passwd.equals(""))
-                    Toast.makeText(LoginActivity.this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                 else {
                     Boolean checkUserPasswd = db.checkUsernamePasswd(user, passwd);
                     if(checkUserPasswd == true){
-                        Toast.makeText(LoginActivity.this, "Login feito com sucesso", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Login feito com sucesso", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), FuncionarioHomeActivity.class);
                         startActivity(intent);
                     }else{
-                        Toast.makeText(LoginActivity.this, "Login falhou! Tente novamente", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Login falhou! Tente novamente", Toast.LENGTH_SHORT  ).show();
                     }
                 }
             }
