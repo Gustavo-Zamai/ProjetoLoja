@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">ApplicationVendas</string>
+    <string name="list">Listagem</string>
     <string name="entrar">Entrar</string>
     <string name="add">Adicionar</string>
     <string name="bck">Voltar</string>
