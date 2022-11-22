@@ -19,14 +19,18 @@ public class Connection extends SQLiteOpenHelper{
                 "nome varchar(25) not null, cpf varchar (25) not null, senha varchar(25) not null," +
                 "salario float not null, cargo varchar (25))");
         db.execSQL("create table produto(id integer primary key autoincrement," +
-                "nome varchar(25) not null, categoria varchar(25), preco float not null, descricao varchar (50)" +
+                "nome varchar (25) not null, categoria varchar(25), preco float not null, descricao varchar (50)" +
                 ", quantidade integer not null)");
+        db.execSQL("create table fornecedor(id integer primary key autoincrement," +
+                "nome varchar(25) not null, cnpj varchar(25) not null," +
+                "email varchar(25), telefone varchar (25))");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("drop table if exists funcionario");
         db.execSQL("drop table if exists produto");
+        db.execSQL("drop table if exists fornecedor");
     }
 
     public Boolean checkUsernamePasswd(String cpf, String senha){

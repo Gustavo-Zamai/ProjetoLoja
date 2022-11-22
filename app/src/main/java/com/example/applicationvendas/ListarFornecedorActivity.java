@@ -19,25 +19,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListarProdutosActivity extends AppCompatActivity {
+public class ListarFornecedorActivity extends AppCompatActivity {
 
     private ListView listView;
-    //private AppCompatButton btn_bckProd;
-    private ProdutoDAO dao;
-    private List<Produto> produtos;
-    private List<Produto> produtosConsulta = new ArrayList<>();
-
+    private FornecedorDAO dao;
+    private List<Fornecedor> fornecedores;
+    private List<Fornecedor> fornecedoresConsulta = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listar_produtos);
+        setContentView(R.layout.activity_listar_fornecedor);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.teal_700)));
 
-        listView = findViewById(R.id.lista_produtos);
-        dao = new ProdutoDAO(this);
-        produtos = dao.getProdutos();
-        produtosConsulta.addAll(produtos); //add todos os fncionarios na tabela func consulta
-        ProdutoAdapter adapt = new ProdutoAdapter(this, produtosConsulta); //joga para a view na tela
+        listView = findViewById(R.id.lista_fornecedor);
+        dao = new FornecedorDAO(this);
+        fornecedores = dao.getFornecedor();
+        fornecedoresConsulta.addAll(fornecedores); //add todos os fncionarios na tabela func consulta
+        FornecedorAdapter adapt = new FornecedorAdapter(this, fornecedoresConsulta); //joga para a view na tela
         listView.setAdapter(adapt);//coloca a lista na tela atraves do adaptador
 
         registerForContextMenu(listView);//jogar os registros de menu, para o list view
@@ -57,7 +55,7 @@ public class ListarProdutosActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                procuraProduto(s);//Verificar se foi feita pesquisa
+                procuraFornecedor(s);//Verificar se foi feita pesquisa
                 return false;
             }
         });
@@ -75,29 +73,29 @@ public class ListarProdutosActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo menuInfo =
                 (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();//jogando o menu para o adaptador
 
-        final Produto produtoDelete = produtosConsulta.get(menuInfo.position);//pega o aluno com a posicao
+        final Fornecedor fornecedorDelete = fornecedoresConsulta.get(menuInfo.position);//pega o aluno com a posicao
 
         AlertDialog dialog = new AlertDialog.Builder(this)//msg de confirmacao para o usuario
                 .setTitle("Atenção")
-                .setMessage("Confirma a exclução do Produto? ")
+                .setMessage("Confirma a exclução desse Fornecedor? ")
                 .setNegativeButton("Não",null)
                 .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {//se for sim exclui das 2 listas
-                        produtosConsulta.remove(produtoDelete);//e do db o selecionado
-                        produtos.remove(produtoDelete);
-                        dao.delete(produtoDelete);
+                        fornecedoresConsulta.remove(fornecedorDelete);//e do db o selecionado
+                        fornecedores.remove(fornecedorDelete);
+                        dao.deleteFornecedor(fornecedorDelete);
                         listView.invalidateViews();
                     }
                 }).create();
         dialog.show();
     }
 
-    public void procuraProduto(String nome){
-        produtosConsulta.clear();
-        for (Produto p : produtos){
-            if(p.getNome_produto().toLowerCase().contains(nome.toLowerCase())){
-                produtosConsulta.add(p);
+    public void procuraFornecedor(String nome){
+        fornecedoresConsulta.clear();
+        for (Fornecedor f : fornecedores){
+            if(f.getNome().toLowerCase().contains(nome.toLowerCase())){
+                fornecedoresConsulta.add(f);
             }
         }
         listView.invalidateViews();
@@ -105,23 +103,22 @@ public class ListarProdutosActivity extends AppCompatActivity {
 
 
     public void cadastrar(MenuItem item){//vinculado com o XML do menu_principal
-        Intent i = new Intent(this, CadProdutosActivity.class);
+        Intent i = new Intent(this, CadFornnecedorActivity.class);
         startActivity(i);
     }
 
     public void update(MenuItem menuItem){
         AdapterView.AdapterContextMenuInfo menuInfo =
                 (AdapterView.AdapterContextMenuInfo) menuItem.getMenuInfo();
-        final Produto produtoUpdate = produtosConsulta.get(menuInfo.position);
-        Intent intent = new Intent(this, CadProdutosActivity.class);
-        intent.putExtra("produto", produtoUpdate);
+        final Fornecedor fornecedorUpdate = fornecedoresConsulta.get(menuInfo.position);
+        Intent intent = new Intent(this, CadFornnecedorActivity.class);
+        intent.putExtra("fornecedor", fornecedorUpdate);
         startActivity(intent);
     }
 
     public void back (MenuItem menuItem){
         AdapterView.AdapterContextMenuInfo menuInfo =
                 (AdapterView.AdapterContextMenuInfo) menuItem.getMenuInfo();
-        //final Funcionario funcionarioUpdate = funcionarioConsulta.get(menuInfo.position);
         Intent intent = new Intent(this, FuncionarioHomeActivity.class);
         startActivity(intent);
     }
@@ -129,8 +126,8 @@ public class ListarProdutosActivity extends AppCompatActivity {
     @Override
     public void onResume(){//atualiza a lista na tela do celular
         super.onResume();
-        produtos = dao.getProdutos();
-        produtosConsulta.addAll(produtos);
+        fornecedores = dao.getFornecedor();
+        fornecedoresConsulta.addAll(fornecedores);
         listView.invalidateViews();//para exibir os novos itens/modificados
     }
-    }
+}

@@ -13,6 +13,20 @@
         android:theme="@style/Theme.ApplicationVendas"
         tools:targetApi="31">
         <activity
+            android:name=".ListarFornecedorActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".CadFornnecedorActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ListFuncionariosActivity"
             android:exported="false">
             <meta-data

@@ -9,7 +9,7 @@ import androidx.cardview.widget.CardView;
 
 public class FuncionarioHomeActivity extends AppCompatActivity {
 
-    private CardView lista_produtos_disponiveis, add_produtos, categoria_prod, sobre, lista_funcionarios, sair;
+    private CardView lista_produtos_disponiveis, add_produtos, lista_fornecedores, add_fornecedor, lista_funcionarios, sair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +19,8 @@ public class FuncionarioHomeActivity extends AppCompatActivity {
 
         lista_produtos_disponiveis = (CardView) findViewById(R.id.lista_produtos_disponiveis);
         add_produtos = (CardView) findViewById(R.id.add_produtos);
-        categoria_prod = (CardView) findViewById(R.id.categoria_prod);
-        sobre = (CardView) findViewById(R.id.sobre);
+        lista_fornecedores = (CardView) findViewById(R.id.lista_fornecedores);
+        add_fornecedor = (CardView) findViewById(R.id.add_fornecedor);
         lista_funcionarios = (CardView) findViewById(R.id.lista_funcionarios);
         sair = (CardView) findViewById(R.id.sair);
 
@@ -33,8 +33,12 @@ public class FuncionarioHomeActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), CadProdutosActivity.class);
         startActivity(intent);
     }
-    public void categoria_prod(View v){
-        Intent intent = new Intent(getApplicationContext(), ListarProdutosActivity.class);
+    public void lista_fornecedores(View v){
+        Intent intent = new Intent(getApplicationContext(), ListarFornecedorActivity.class);
+        startActivity(intent);
+    }
+    public void add_fornecedor(View v){
+        Intent intent = new Intent(getApplicationContext(), CadFornnecedorActivity.class);
         startActivity(intent);
     }
     public void lista_funcionarios(View v){
