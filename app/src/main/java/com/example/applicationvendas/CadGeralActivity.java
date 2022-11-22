@@ -45,24 +45,16 @@ public class CadGeralActivity extends AppCompatActivity {
 
     }
         public void btn_cadastrar(View view) {
-            if (funcionario == null) {
                 Funcionario f = new Funcionario();
-                funcionario.setNome(edit_nome.getText().toString());
-                funcionario.setCpf(edit_cpf.getText().toString());
-                funcionario.setCargo(edit_cargo.getText().toString());
-                funcionario.setSalario(((Float.parseFloat(edit_salario.getText().toString()))));
-                funcionario.setSenha(edit_passwd_cadastro.getText().toString());
+                f.setNome(edit_nome.getText().toString());
+                f.setCpf(edit_cpf.getText().toString());
+                f.setCargo(edit_cargo.getText().toString());
+                f.setSalario(((Float.parseFloat(edit_salario.getText().toString()))));
+                f.setSenha(edit_passwd_cadastro.getText().toString());
                 long id = dao.insert(f);
                 Toast.makeText(this, "Funcionáiro cadastrado com o ID: " + id, Toast.LENGTH_LONG).show();
-            } else {
-                funcionario.setNome(edit_nome.getText().toString());
-                funcionario.setCpf(edit_cpf.getText().toString());
-                funcionario .setCargo(edit_cargo.getText().toString());
-                funcionario.setSalario(((Float.parseFloat(edit_salario.getText().toString()))));
-                funcionario .setSenha(edit_passwd_cadastro.getText().toString());
-                dao.updateF(funcionario);
-                Toast.makeText(this, "Funcionáiro atualizado", Toast.LENGTH_LONG).show();
-            }
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
         }
         public void btn_tela_login(View view){
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
