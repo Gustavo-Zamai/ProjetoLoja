@@ -22,7 +22,6 @@ import java.util.List;
 public class ListarProdutosActivity extends AppCompatActivity {
 
     private ListView listView;
-    //private AppCompatButton btn_bckProd;
     private ProdutoDAO dao;
     private List<Produto> produtos;
     private List<Produto> produtosConsulta = new ArrayList<>();

@@ -110,7 +110,7 @@ public class ListarFuncionariosActivity extends AppCompatActivity {
 
 
     public void cadastrar(MenuItem item){//vinculado com o XML do menu_principal
-        Intent i = new Intent(this, CadGeralActivity.class);
+        Intent i = new Intent(this, CadFuncionarioLogadoActivity.class);
         startActivity(i);
     }
 

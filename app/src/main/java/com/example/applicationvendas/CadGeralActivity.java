@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CadGeralActivity extends AppCompatActivity {
 
     private EditText edit_nome, edit_cpf, edit_salario, edit_passwd_cadastro,edit_passwd_cadastro_2, edit_cargo;
-    //private AppCompatButton btn_cadastrar, btn_tela_login;
     private FuncionarioDAO dao;
     private Connection db;
     private Funcionario funcionario = null;
@@ -28,7 +27,6 @@ public class CadGeralActivity extends AppCompatActivity {
         edit_passwd_cadastro = (EditText) findViewById(R.id.edit_passwd_cadastro);
         edit_passwd_cadastro_2 = (EditText) findViewById(R.id.edit_passwd_cadastro_2);
         edit_cargo = (EditText) findViewById(R.id.edit_cargo);
-        //btn_cadastrar = (AppCompatButton) findViewById(R.id.btn_cadastrar);
         db = new Connection(this);
         dao = new FuncionarioDAO(this);
 

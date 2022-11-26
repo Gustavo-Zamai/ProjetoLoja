@@ -64,6 +64,8 @@ public class CadProdutosActivity extends AppCompatActivity {
             dao.updateP(produto);
             Toast.makeText(this, "Produto atualizado", Toast.LENGTH_LONG).show();
         }
+        Intent i = new Intent(getApplicationContext(), FuncionarioHomeActivity.class);
+        startActivity(i);
     }
 
     public void btn_voltar(View v){

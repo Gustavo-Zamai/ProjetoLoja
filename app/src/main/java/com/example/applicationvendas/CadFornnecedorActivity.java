@@ -7,11 +7,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 
 public class CadFornnecedorActivity extends AppCompatActivity {
     private EditText edit_nome, edit_cnpj, edit_email, edit_telefone;
-    private AppCompatButton btn_add_fornecedor, btn_voltar_home;
     private FornecedorDAO dao;
     private Connection db;
     private Fornecedor fornecedor = null;
@@ -26,8 +24,6 @@ public class CadFornnecedorActivity extends AppCompatActivity {
         edit_cnpj = (EditText) findViewById(R.id.edit_cnpj);
         edit_email = (EditText) findViewById(R.id.edit_email);
         edit_telefone = (EditText) findViewById(R.id.edit_telefone);
-        btn_add_fornecedor = (AppCompatButton) findViewById(R.id.btn_add_fornecedor);
-        btn_voltar_home = (AppCompatButton) findViewById(R.id.btn_voltar_home);
         dao = new FornecedorDAO(this);
         db = new Connection(this);
 
@@ -59,6 +55,8 @@ public class CadFornnecedorActivity extends AppCompatActivity {
             dao.updateFornecedor(fornecedor);
             Toast.makeText(this, "Fornecedor atualizado",Toast.LENGTH_SHORT).show();
         }
+        Intent i = new Intent(getApplicationContext(), FuncionarioHomeActivity.class);
+        startActivity(i);
     }
 
     public void btn_voltar_home (View v){
